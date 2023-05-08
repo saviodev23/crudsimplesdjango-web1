@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>editar pessoa</title>
+</head>
+<body>
+<ul>
+    <li>{{pessoas.id}} - {{pessoas.nome}} - {{pessoas.idade}} - {{pessoas.cpf}}</li>
+</ul>
+
+    <form action="{% url 'update' pessoas.id %}" method="post">
+        {% csrf_token %}
+        <label>
+            <input type="text" name="nome" value="{{ pessoas.nome }}">
+        </label>
+        <label>
+            <input type="number" name="idade" value="{{ pessoas.idade }}">
+        </label>
+        <label>
+            <input type="text" name="cpf" value="{{ pessoas.cpf }}">
+        </label>
+        <button type="submit">Update</button>
+{#        o value é para os campos ficarem preenchidos#}
+    </form>
+</body>
+</html>
